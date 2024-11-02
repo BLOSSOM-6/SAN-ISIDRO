@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checklist - Blossom San Isidro</title>
+    <!-- Incluye SheetJS para exportación a .xls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            text-align: center;
+        }
+        .task-container {
+            margin-bottom: 20px;
+        }
+        .task {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .task label {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .task textarea {
+            flex: 1;
+            margin-left: 10px;
+            width: 300px;
+            height: 50px;
+        }
+        .save-button, .export-button, .clear-button, .reset-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .save-button:hover, .export-button:hover, .clear-button:hover, .reset-button:hover {
+            background-color: #0056b3;
+        }
+        .history {
+            margin-top: 20px;
+        }
+        .version {
+            background: #e9ecef;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        details summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .instructions {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>BLOSSOM SAN ISIDRO</h1>
+    <div class="header">
+        <label>Nombre:</label>
+        <input type="text" id="nombre" placeholder="Ingresa tu nombre..." required>
+        <div class="instructions">Por favor, completa todas las tareas. Si alguna tarea no se realiza, deja un comentario explicativo.</div>
+    </div>
+
+    <!-- Zona 1 -->
+    <div class="task-container">
+        <h2>Zona 1: Coctelería y Jugos</h2>
+        <div class="task">
+            <label for="task1-1">Producción de almíbares completa</label>
+            <input type="checkbox" id="task1-1">
+            <textarea id="comentario-zona1-1" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task1-2">Rotulado con fecha al día (Jugos, almíbares, frutas para licuados)</label>
+            <input type="checkbox" id="task1-2">
+            <textarea id="comentario-zona1-2" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task1-3">Frutas proporcionadas y frescas para tragos</label>
+            <input type="checkbox" id="task1-3">
+            <textarea id="comentario-zona1-3" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task1-4">Hielera llena</label>
+            <input type="checkbox" id="task1-4">
+            <textarea id="comentario-zona1-4" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task1-5">Stock de bebidas</label>
+            <input type="checkbox" id="task1-5">
+            <textarea id="comentario-zona1-5" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task1-6">Notificación de faltantes (86)</label>
+            <input type="checkbox" id="task1-6">
+            <textarea id="comentario-zona1-6" placeholder="Añade comentarios..."></textarea>
+        </div>
+    </div>
+
+    <!-- Zona 2 -->
+    <div class="task-container">
+        <h2>Zona 2: Exhibidora / Pastelería</h2>
+        <div class="task">
+            <label for="task2-1">Limpieza heladera de tortas</label>
+            <input type="checkbox" id="task2-1">
+            <textarea id="comentario-zona2-1" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task2-2">Exhibición y rotulado de tortas (acomodar para evitar espacios vacíos)</label>
+            <input type="checkbox" id="task2-2">
+            <textarea id="comentario-zona2-2" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task2-3">Vidrios de exhibidora limpios</label>
+            <input type="checkbox" id="task2-3">
+            <textarea id="comentario-zona2-3" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task2-4">Exhibición de laminados completa (Medialunas, croissants, rolls de canela)</label>
+            <input type="checkbox" id="task2-4">
+            <textarea id="comentario-zona2-4" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task2-5">Lista de prioritarios para despacho (tortas) y aviso a los mozos</label>
+            <input type="checkbox" id="task2-5">
+            <textarea id="comentario-zona2-5" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task2-6">Control de stock</label>
+            <input type="checkbox" id="task2-6">
+            <textarea id="comentario-zona2-6" placeholder="Añade comentarios..."></textarea>
+        </div>
+    </div>
+
+    <!-- Zona 3 -->
+    <div class="task-container">
+        <h2>Zona 3: Cafetería</h2>
+        <div class="task">
+            <label for="task3-1">Espresso calibrado y comandadas en "Desperdicios" las extracciones</label>
+            <input type="checkbox" id="task3-1">
+            <textarea id="comentario-zona3-1" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task3-2">Heladeras stockeadas (Revisar planilla de stock de insumos)</label>
+            <input type="checkbox" id="task3-2">
+            <textarea id="comentario-zona3-2" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task3-3">Tolva llena y bolsa de café de backup</label>
+            <input type="checkbox" id="task3-3">
+            <textarea id="comentario-zona3-3" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task3-4">Crema batida</label>
+            <input type="checkbox" id="task3-4">
+            <textarea id="comentario-zona3-4" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task3-5">Stock de papelera</label>
+            <input type="checkbox" id="task3-5">
+            <textarea id="comentario-zona3-5" placeholder="Añade comentarios..."></textarea>
+        </div>
+        <div class="task">
+            <label for="task3-6">Utensilios de cafetería limpios</label>
+            <input type="checkbox" id="task3-6">
+            <textarea id="comentario-zona3-6" placeholder="Añade comentarios..."></textarea>
+        </div>
+    </div>
+
+    <button class="save-button" onclick="guardarChecklist()">Guardar Checklist</button>
+    <button class="export-button" onclick="exportarExcel()">Exportar a Excel</button>
+    <button class="reset-button" onclick="limpiarCampos()">Limpiar Campos</button>
+
+    <div id="versiones" class="history"></div>
+
+    <script>
+        function guardarChecklist() {
+            const nombre = document.getElementById('nombre').value.trim();
+            if (nombre === "") {
+                alert("El nombre es obligatorio.");
+                return;
+            }
+
+            const tareas = [];
+            const nombresTareas = [
+                "Producción de almíbares completa", "Rotulado con fecha al día (Jugos, almíbares, frutas para licuados)",
+                "Frutas proporcionadas y frescas para tragos", "Hielera llena", "Stock de bebidas", "Notificación de faltantes (86)",
+                "Limpieza heladera de tortas", "Exhibición y rotulado de tortas (acomodar para evitar espacios vacíos)",
+                "Vidrios de exhibidora limpios", "Exhibición de laminados completa (Medialunas, croissants, rolls de canela)",
+                "Lista de prioritarios para despacho (tortas) y aviso a los mozos", "Control de stock",
+                "Espresso calibrado y comandadas en 'Desperdicios' las extracciones", "Heladeras stockeadas (Revisar planilla de stock de insumos)",
+                "Tolva llena y bolsa de café de backup", "Crema batida", "Stock de papelera", "Utensilios de cafetería limpios"
+            ];
+
+            for (let i = 1; i <= 3; i++) {
+                for (let j = 1; j <= 6; j++) {
+                    const tareaId = `task${i}-${j}`;
+                    const comentarioId = `comentario-zona${i}-${j}`;
+                    const checked = document.getElementById(tareaId).checked;
+                    const comentario = document.getElementById(comentarioId).value.trim();
+
+                    if (!checked && comentario === "") {
+                        alert(`Si la tarea "${nombresTareas[(i - 1) * 6 + (j - 1)]}" no está completada, debes dejar un comentario.`);
+                        return;
+                    }
+
+                    tareas.push({ tarea: nombresTareas[(i - 1) * 6 + (j - 1)], completada: checked, comentario: comentario });
+                }
+            }
+
+            const version = {
+                nombre: nombre,
+                fecha: new Date().toLocaleString('es-ES', { hour12: false }),
+                tareas: tareas
+            };
+
+            const versiones = JSON.parse(localStorage.getItem('versiones')) || [];
+            versiones.push(version);
+            localStorage.setItem('versiones', JSON.stringify(versiones));
+            mostrarVersiones();
+        }
+
+        function mostrarVersiones() {
+            const versionesContainer = document.getElementById('versiones');
+            versionesContainer.innerHTML = '<h2>Historial de Checklist</h2>';
+            const versiones = JSON.parse(localStorage.getItem('versiones')) || [];
+            versiones.forEach((version, index) => {
+                const versionDiv = document.createElement('details');
+                versionDiv.classList.add('version');
+                versionDiv.innerHTML = `<summary>Versión ${index + 1}: ${version.nombre} - ${version.fecha}</summary>
+                <ul>${version.tareas.map(t => `<li>${t.tarea}: ${t.completada ? 'Completada' : 'No completada'}${t.comentario ? ` - Comentario: ${t.comentario}` : ''}</li>`).join('')}</ul>`;
+                versionesContainer.appendChild(versionDiv);
+            });
+        }
+
+        function exportarExcel() {
+            const versiones = JSON.parse(localStorage.getItem('versiones')) || [];
+            const data = [];
+
+            // Añadir encabezado
+            data.push(["Versión", "Nombre", "Fecha", "Tarea", "Completada", "Comentario"]);
+
+            // Añadir datos de cada versión
+            versiones.forEach((version, index) => {
+                version.tareas.forEach(tarea => {
+                    data.push([
+                        `Versión ${index + 1}`,  // Agrega el número de versión
+                        version.nombre,
+                        version.fecha,
+                        tarea.tarea,
+                        tarea.completada ? "Sí" : "No",
+                        tarea.comentario ? tarea.comentario.replace(/,/g, ";") : ""
+                    ]);
+                });
+            });
+
+            // Crear una hoja de trabajo y un libro de trabajo
+            const worksheet = XLSX.utils.aoa_to_sheet(data);
+            const workbook = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(workbook, worksheet, "Checklist");
+
+            // Descargar archivo en formato .xls
+            XLSX.writeFile(workbook, "checklist.xls", { bookType: "xls", type: "binary" });
+        }
+
+        function limpiarCampos() {
+            document.getElementById('nombre').value = "";
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+            document.querySelectorAll('textarea').forEach(ta => ta.value = "");
+        }
+
+        mostrarVersiones();
+    </script>
+</body>
+</html>
